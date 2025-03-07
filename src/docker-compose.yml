@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  docousersdb:
+    image: mcr.microsoft.com/mssql/server
+
+  docousers:
+    image: ${DOCKER_REGISTRY-}docousers
+    build:
+      context: .
+      dockerfile: DOCOUsers/Dockerfile
+
+volumes:
+    mssql_docousers:
